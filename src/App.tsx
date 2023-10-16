@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Courses from './pages/Courses';
+import ContactUs from './pages/ContactUs';
+import Blogs from './pages/Blogs';
+import AddToCart from './pages/AddToCart';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path='/contact' element={<ContactUs />} />
+        <Route path='/blogs' element={<Blogs />} />
+        <Route path='/courses/buyCourses/*' element={<AddToCart />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
